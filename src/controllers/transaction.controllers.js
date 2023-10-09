@@ -34,7 +34,6 @@ export async function readTransactions(req, res) {
 
         res.send(transactions)
 
-
     } catch (err) {
 
         res.status(500).send(err.message)
