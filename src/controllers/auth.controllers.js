@@ -13,7 +13,7 @@ export async function signUp(req, res) {
 
         const hash = bcrypt.hashSync(password, 10)
 
-        await db.collection("users").insertOne({ name, email, password })
+        await db.collection("users").insertOne({ name, email, password: hash })
 
         res.sendStatus(201)
 
