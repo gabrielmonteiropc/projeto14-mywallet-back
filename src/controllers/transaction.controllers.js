@@ -26,7 +26,13 @@ export async function readTransactions(req, res) {
 
     try {
 
-        res.send("get")
+        const transactions = await db
+            .collection("transactions")
+            .find({ userId })
+            .sort({ date: -1 })
+            .toArray()
+
+        res.send(transactions)
 
 
     } catch (err) {
